@@ -1353,16 +1353,145 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; border-color: va
 }
 
 /* ══════════════════════════════════════════════════════
-   HERO FLOWER CANVAS
+   HERO FLOWER — Interactive 3D WebGL Canvas (Transparent background)
 ══════════════════════════════════════════════════════ */
 
-#flower-canvas {
+.hero-flower {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  right: clamp(-40px, -1vw, 20px);
+  transform: translateY(-52%);
+  width: clamp(480px, 48vw, 820px);
+  height: clamp(480px, 48vw, 820px);
   pointer-events: none;
   z-index: 2;
+  /* Transparent 3D Canvas — no mix-blend-mode box artifacts! */
+  animation: flowerFloat 6s ease-in-out infinite;
+}
+
+#flower-canvas {
+  width: 100%;
+  height: 100%;
   display: block;
+}
+
+@keyframes flowerFloat {
+  0%, 100% { transform: translateY(-52%) }
+  50%       { transform: translateY(-48%) }
+}
+
+@media (max-width: 900px) {
+  .hero-flower {
+    width: clamp(280px, 60vw, 440px);
+    height: clamp(280px, 60vw, 440px);
+    top: auto;
+    bottom: -10%;
+    right: -5%;
+    transform: none;
+    opacity: 0.5;
+    animation: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-flower { display: none; }
+}
+
+/* ══════════════════════════════════════════════════════
+   3D GRID OPERATIONS BACKGROUND (#3C9952 Wireframe Plane)
+══════════════════════════════════════════════════════ */
+#grid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ══════════════════════════════════════════════════════
+   CIRCUIT ISOLATION HOVER EFFECT
+   Hovering one project card dims sibling cards to opacity 0.3
+   while hovered card remains at opacity 1.0 and scale(1.01)
+══════════════════════════════════════════════════════ */
+.work:hover .project {
+  opacity: 0.3;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.work .project:hover {
+  opacity: 1 !important;
+  transform: scale(1.01);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.what-i-build-grid:hover .build-card {
+  opacity: 0.3;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.what-i-build-grid .build-card:hover {
+  opacity: 1 !important;
+  transform: scale(1.01);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* ══════════════════════════════════════════════════════
+   TELEMETRY STATUS BADGES (Glassmorphic Overlay)
+══════════════════════════════════════════════════════ */
+.telemetry-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: #e0e0e0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  user-select: none;
+}
+
+.telemetry-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981; /* emerald-500 */
+}
+
+.telemetry-dot::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background-color: #34d399;
+  opacity: 0.75;
+  animation: telemetryPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes telemetryPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
 }

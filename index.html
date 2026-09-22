@@ -16,6 +16,11 @@
 <body>
 
   <!-- ═══════════════════════════════════════════════
+       3D GRID OPERATIONS — BACKGROUND CANVAS (#3C9952, opacity 0.15)
+  ═══════════════════════════════════════════════ -->
+  <canvas id="grid-canvas"></canvas>
+
+  <!-- ═══════════════════════════════════════════════
        CURSOR
   ═══════════════════════════════════════════════ -->
   <div class="cursor" id="cursor"></div>
@@ -78,8 +83,10 @@
       </div>
     </div>
 
-    <!-- Flower Canvas — full hero overlay, pointer-events:none -->
-    <canvas id="flower-canvas"></canvas>
+    <!-- Bioluminescent Flower — Interactive 3D WebGL Canvas (Transparent background) -->
+    <div class="hero-flower" id="hero-flower">
+      <canvas id="flower-canvas"></canvas>
+    </div>
 
     <div class="hero-scroll">
       <span class="scroll-line"></span>
@@ -211,6 +218,10 @@
     <article class="project project--left reveal-up">
       <div class="project-visual">
         <div class="project-visual-inner project-visual--babes">
+          <div class="telemetry-badge">
+            <span class="telemetry-dot"></span>
+            <span class="telemetry-text">NODE: ACTIVE</span>
+          </div>
           <div class="project-visual-label">BABES</div>
           <div class="project-loop">
             <span>OBSERVE</span>
@@ -252,6 +263,10 @@
     <article class="project project--right reveal-up">
       <div class="project-visual">
         <div class="project-visual-inner project-visual--realis">
+          <div class="telemetry-badge">
+            <span class="telemetry-dot"></span>
+            <span class="telemetry-text">LATENCY: 14ms</span>
+          </div>
           <div class="project-visual-label">REALIS</div>
           <div class="project-loop">
             <span>DESIGN</span>
@@ -288,6 +303,10 @@
     <article class="project project--left reveal-up">
       <div class="project-visual">
         <div class="project-visual-inner project-visual--iris">
+          <div class="telemetry-badge">
+            <span class="telemetry-dot"></span>
+            <span class="telemetry-text">STATUS: ONLINE</span>
+          </div>
           <div class="project-visual-label">IRIS</div>
           <div class="project-loop">
             <span>SEE</span>
@@ -584,8 +603,10 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- Three.js 3D Library for bioluminescent WebGL flower canvas & 3D Grid background -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="js/flower.js"></script>
+  <script src="js/grid-canvas.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
