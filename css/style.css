@@ -1495,3 +1495,296 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; border-color: va
     opacity: 0;
   }
 }
+
+/* ══════════════════════════════════════════════════════
+   3D SPATIAL COMMAND CENTER SECTION & TELEMETRY SIDE PANEL
+══════════════════════════════════════════════════════ */
+.command-center-section {
+  padding: 80px var(--pad);
+  position: relative;
+  z-index: 10;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.command-center-header {
+  margin-bottom: 32px;
+}
+
+.cc-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: #3C9952;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.cc-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.cc-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  color: #888899;
+  margin-top: 8px;
+  max-width: 640px;
+}
+
+.command-center-box {
+  width: 100%;
+  height: clamp(450px, 55vh, 620px);
+  background: #0f0f13;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+#command-center-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.reset-cam-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.reset-cam-btn:hover {
+  border-color: #3C9952;
+  color: #3C9952;
+}
+
+/* Glassmorphic Slide-in Telemetry Side Panel */
+.telemetry-side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: clamp(320px, 90vw, 440px);
+  z-index: 100;
+  background: rgba(10, 10, 14, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.9);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 32px 28px;
+  overflow-y: auto;
+}
+
+.telemetry-side-panel.open {
+  transform: translateX(0);
+}
+
+.t-panel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.t-panel-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.t-cat-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: #3C9952;
+  font-weight: 700;
+}
+
+.close-telemetry-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #888;
+  font-family: 'Space Mono', monospace;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.close-telemetry-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.t-subtitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  color: #666677;
+  letter-spacing: 0.12em;
+  display: block;
+  margin-top: 24px;
+}
+
+.t-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 4px;
+}
+
+.t-status-pill {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(60, 153, 82, 0.12);
+  border: 1px solid rgba(60, 153, 82, 0.35);
+  color: #3C9952;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+}
+
+.t-body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  color: #bbb;
+  line-height: 1.6;
+  margin-top: 18px;
+}
+
+.t-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.t-sec-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: #777788;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.t-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.t-pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ddd;
+}
+
+.t-metric {
+  margin-bottom: 14px;
+}
+
+.t-metric-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+.t-val.font-green { color: #3C9952; font-weight: 700; }
+.t-val.font-cyan { color: #00f3ff; font-weight: 700; }
+.t-val.font-dim { color: #888899; }
+
+.t-bar-bg {
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.t-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+}
+
+.font-green-bg { background-color: #3C9952; }
+.font-cyan-bg { background-color: #00f3ff; }
+.font-purple-bg { background-color: #8a2be2; }
+
+.t-panel-actions {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.t-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.t-btn-primary {
+  background: #3C9952;
+  color: #000;
+  box-shadow: 0 4px 20px rgba(60, 153, 82, 0.3);
+}
+
+.t-btn-primary:hover {
+  background: #46b360;
+}
+
+.t-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.t-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}

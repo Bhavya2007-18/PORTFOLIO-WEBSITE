@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #080808;
+  --bg-2: #0e0e0e;
+  --bg-3: #141414;
+  --fg: #f0ede8;
+  --fg-dim: #5a5a5a;
+  --fg-mid: #999;
+  --accent: #c8f135;
+  --accent-2: #ff4d00;
+  --accent-green: #3C9952;
+  --border: rgba(240, 237, 232, 0.08);
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --nav-h: 72px;
+  --pad: 2rem;
+  --max-w: 1280px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+body, a, button, input, textarea, select, [role="button"], .cursor-pointer {
+  cursor: none !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3C9952;
+}
+
+/* Text Stroke / Outline for Hero Brutalist Typography */
+.text-stroke-hero {
+  -webkit-text-stroke: 1.5px rgba(240, 237, 232, 0.35);
+  color: transparent;
+  transition: all 0.4s ease;
+}
+.text-stroke-hero:hover {
+  -webkit-text-stroke: 1.5px #3C9952;
+  color: rgba(60, 153, 82, 0.15);
+  text-shadow: 0 0 25px rgba(60, 153, 82, 0.4);
+}
+
+/* Text Readability Helpers over 3D Canvas */
+.text-glow {
+  text-shadow: 0 0 24px rgba(60, 153, 82, 0.35);
+}
+
+.text-readable {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 0 3px rgba(0, 0, 0, 0.85);
+}
+
+/* Subtle CRT Scanline overlay */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Custom Selection */
+::selection {
+  background: #3C9952;
+  color: #080808;
+}
