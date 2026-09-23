@@ -50,11 +50,11 @@ body, a, button, input, textarea, select, [role="button"], .cursor-pointer {
 .text-stroke-hero {
   -webkit-text-stroke: 1.5px rgba(240, 237, 232, 0.35);
   color: transparent;
-  transition: all 0.4s ease;
+  transition: all 0.5s ease-out;
 }
-.text-stroke-hero:hover {
+.text-stroke-hero:hover,
+.group:hover .text-stroke-hero {
   -webkit-text-stroke: 1.5px #3C9952;
-  color: rgba(60, 153, 82, 0.15);
   text-shadow: 0 0 25px rgba(60, 153, 82, 0.4);
 }
 

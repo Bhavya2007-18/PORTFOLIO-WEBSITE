@@ -1,6 +1,4 @@
-'use client';
-
-import dynamic from 'next/dynamic';
+import React, { Suspense, lazy } from 'react';
 import CustomCursor from '@/components/CustomCursor';
 import Navbar from '@/components/Navbar';
 import HeroOverlay from '@/components/HeroOverlay';
@@ -15,11 +13,8 @@ import AboutSection from '@/components/sections/About';
 import CurrentlySection from '@/components/sections/Currently';
 import FooterSection from '@/components/sections/Footer';
 
-// Dynamic R3F Canvas import with SSR disabled
-const CanvasBackground = dynamic(() => import('@/components/CanvasBackground'), {
-  ssr: false,
-  loading: () => <div className="fixed inset-0 z-0 bg-[#080808]" />,
-});
+// Lazy load 3D R3F Canvas component
+const CanvasBackground = lazy(() => import('@/components/CanvasBackground'));
 
 export default function Home() {
   return (
@@ -28,7 +23,9 @@ export default function Home() {
       <CustomCursor />
 
       {/* Fixed 3D WebGL Background Layer (fixed inset-0 z-0 pointer-events-none) */}
-      <CanvasBackground />
+      <Suspense fallback={<div className="fixed inset-0 z-0 bg-[#080808]" />}>
+        <CanvasBackground />
+      </Suspense>
 
       {/* Retro scanline texture overlay */}
       <div className="fixed inset-0 z-[1] scanlines pointer-events-none opacity-40" />

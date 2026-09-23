@@ -67,37 +67,39 @@ export default function WhatIBuildSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, delay: i * 0.12 }}
-            className="p-8 sm:p-10 bg-[#0c0c0f]/80 backdrop-blur-md border border-white/10 hover:border-[#3C9952]/80 transition-all duration-300 rounded-none flex flex-col justify-between min-h-[300px] relative group hover:shadow-[0_0_35px_rgba(60,153,82,0.18)]"
+            className="h-full"
           >
-            {/* Top Tag & Index */}
-            <div>
-              <div className="flex justify-between items-start mb-4">
-                <span className="font-mono text-xs text-[#3C9952] font-semibold tracking-wider">
-                  {card.meta}
-                </span>
-                <span className="font-mono text-xs text-white/30 font-bold">
-                  {card.num} //
-                </span>
+            <div className="group relative p-6 sm:p-8 md:p-10 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-400 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:bg-white/10 hover:border-white/20 hover:shadow-[0_20px_40px_-15px_rgba(60,153,82,0.2)] hover:z-10 flex flex-col justify-between min-h-[300px] h-full shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] hover:shadow-[0_20px_40px_-15px_rgba(60,153,82,0.25),inset_0_1px_0_0_rgba(255,255,255,0.15)]">
+              {/* Top Tag & Index */}
+              <div>
+                <div className="flex justify-between items-start mb-4">
+                  <span className="font-mono text-xs text-[#3C9952] font-semibold tracking-wider">
+                    {card.meta}
+                  </span>
+                  <span className="font-mono text-xs text-white/30 font-bold">
+                    {card.num} //
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white mb-4 group-hover:text-[#3C9952] transition-colors">
+                  {card.title}
+                </h3>
+                <p className="text-sm text-[#b0ada8] font-light leading-relaxed mb-6">
+                  {card.desc}
+                </p>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white mb-4 group-hover:text-[#3C9952] transition-colors">
-                {card.title}
-              </h3>
-              <p className="text-sm text-[#b0ada8] font-light leading-relaxed mb-6">
-                {card.desc}
-              </p>
-            </div>
-
-            {/* Stack Chips */}
-            <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
-              {card.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 bg-white/[0.04] border border-white/10 text-[11px] font-mono text-white/70 group-hover:border-[#3C9952]/40 transition-colors"
-                >
-                  {tag}
-                </span>
-              ))}
+              {/* Stack Chips */}
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                {card.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 bg-white/[0.04] border border-white/10 text-[11px] font-mono text-white/70 group-hover:border-[#3C9952]/40 transition-colors"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
         ))}

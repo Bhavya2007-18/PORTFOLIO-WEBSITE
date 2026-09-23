@@ -29,6 +29,9 @@ const config: Config = {
         sans: ['Space Grotesk', 'sans-serif'],
         mono: ['Space Mono', 'monospace'],
       },
+      transitionDuration: {
+        '400': '400ms',
+      },
       keyframes: {
         telemetryPulse: {
           '0%, 100%': { opacity: '1', transform: 'scale(1)' },
@@ -38,10 +41,15 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-8px)' },
         },
+        gradientFlow: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
       },
       animation: {
         'telemetry-pulse': 'telemetryPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'flower-float': 'flowerFloat 6s ease-in-out infinite',
+        'gradient-flow': 'gradientFlow 4s ease infinite',
       },
     },
   },

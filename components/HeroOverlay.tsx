@@ -33,9 +33,14 @@ export default function HeroOverlay() {
           transition={{ duration: 1, ease: 'easeOut' }}
           className="max-w-6xl"
         >
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter uppercase leading-[0.88] text-white text-readable">
-            I BUILD MACHINES <br />
-            <span className="text-stroke-hero">THAT THINK.</span>
+          <h1 className="group w-fit text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter uppercase leading-[0.88] text-readable cursor-default select-none">
+            <span className="inline-block text-white hover:text-transparent group-hover:text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-300 hover:bg-gradient-to-r hover:from-emerald-400 hover:via-cyan-400 hover:to-emerald-300 group-hover:bg-gradient-to-r group-hover:from-emerald-400 group-hover:via-cyan-400 group-hover:to-emerald-300 bg-[length:200%_auto] hover:animate-gradient-flow group-hover:animate-gradient-flow transition-all duration-500 ease-out cursor-default">
+              I BUILD MACHINES
+            </span>{' '}
+            <br />
+            <span className="inline-block text-stroke-hero hover:text-transparent group-hover:text-transparent hover:bg-clip-text group-hover:bg-clip-text hover:bg-gradient-to-r hover:from-emerald-400 hover:via-cyan-400 hover:to-emerald-300 group-hover:bg-gradient-to-r group-hover:from-emerald-400 group-hover:via-cyan-400 group-hover:to-emerald-300 bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-300 bg-[length:200%_auto] hover:animate-gradient-flow group-hover:animate-gradient-flow transition-all duration-500 ease-out cursor-default">
+              THAT THINK.
+            </span>
           </h1>
           <p className="mt-8 text-base sm:text-lg md:text-xl text-[#b0ada8] max-w-2xl font-light leading-relaxed text-readable">
             Architecting high-performance intelligent systems, real-time neural vision pipelines, and localized edge compute clusters on physical silicon.
