@@ -56,7 +56,7 @@ export default function FooterSection() {
             <a href="https://github.com/Bhavya2007-18" target="_blank" rel="noopener noreferrer" className="hover:text-[#3C9952] transition-colors">
               GITHUB ↗
             </a>
-            <a href="https://www.linkedin.com/in/bhavya-porwal" target="_blank" rel="noopener noreferrer" className="hover:text-[#3C9952] transition-colors">
+            <a href="https://www.linkedin.com/in/bhavya-porwal-1a1283370/" target="_blank" rel="noopener noreferrer" className="hover:text-[#3C9952] transition-colors">
               LINKEDIN ↗
             </a>
             <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#3C9952] transition-colors">
